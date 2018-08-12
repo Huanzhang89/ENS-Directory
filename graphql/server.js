@@ -7,7 +7,19 @@ const app = express()
 // GraphQL schema
 var schema = buildSchema(`
     type Query {
-        message: String
+        domainName(name: String): OwnerHistory
+        address(hash: String): Address
+    }
+
+    type OwnerHistory {
+      hash: String!,
+      history: [Owner],
+      owner: Owner,
+    }
+
+    type Owner {
+      block: String!,
+      address: String!,
     }
 `)
 

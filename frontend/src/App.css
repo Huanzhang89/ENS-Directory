@@ -22,7 +22,48 @@
   font-size: large;
 }
 
+.labels {
+  display: flex;
+}
+
+.label {
+  text-align: center;
+  width: 150px;
+  padding: 5px 10px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.logo {
+  width: 100%;
+  height: 80px;
+  background: #5581fb;
+  position: relative;
+  display: flex;
+  padding: 5px 0;
+}
+
+.logo img {
+  flex: 1 1 0;
+}
+
+.search-bar {
+  width: 100%;
+  height: 80px;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+  padding: 5px 0;
+}
+
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
