@@ -7,25 +7,33 @@ const app = express()
 // GraphQL schema
 var schema = buildSchema(`
     type Query {
-        domainName(name: String): OwnerHistory
-        address(hash: String): Address
+        domainName(id: Int): Owner
     }
-
-    type OwnerHistory {
-      hash: String!,
-      history: [Owner],
-      owner: Owner,
-    }
-
     type Owner {
+      id: Int!,
+      name: String,
       block: String!,
       address: String!,
     }
 `)
 
+var domainData = [
+  {
+    id: 1,
+    name: 'jefflau.eth',
+    block: '1',
+    address: '0x000'
+  }
+]
+var getDomain = function(args) {
+  var id = args.id
+  console.log(args)
+  return domainData
+}
+
 // Root resolver
 var root = {
-  message: () => 'Hello World!'
+  domainName: getDomain
 }
 
 app.use(
